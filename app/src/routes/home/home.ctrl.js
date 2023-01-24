@@ -1,14 +1,22 @@
 "use strict";
 
-const home = function (req, res){
-    res.render("home/index");
-};
+const {debug} = require("nodemon/lib/utils");
+const output = {
+    home: function (req, res){
+        res.render("home/index");
+    },
 
-const login = function(req, res){
-    res.render("home/login")
-};
+    login: function(req, res){
+        res.render("home/login")
+    },
+}
+const process = {
+    login: function (req, res) {
+        console.log(req.body);
+    }
+}
 
 module.exports = {
-    home,
-    login,
+    output,
+    process
 };
