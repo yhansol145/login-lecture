@@ -7,7 +7,7 @@ class UserStorage {
         name: ["자바", "파이썬", "스위프트"]
     };
 
-    static getUser(...fileds) {
+    static getUsers(...fileds) {
         const users = this.#users;
         const newUsers = fileds.reduce((newUsers, filed) => {
             if(users.hasOwnProperty(filed)) { // users에 해당하는 key 값이 있는지 체크
@@ -16,6 +16,17 @@ class UserStorage {
             return newUsers;
         }, {});
         return newUsers;
+    }
+
+    static getUserInfo(id) {
+        const users = this.#users;
+        const idx = users.id.indexOf(id);
+        const userKeys = Object.keys(users);
+        const userInfo = userKeys.reduce((newUser, info) => {
+            newUser[info] = users[info][idx];
+            return newUser;
+        }, {});
+        return userInfo;
     }
 }
 
