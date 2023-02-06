@@ -12,6 +12,10 @@ const output = {
     login: function(req, res){
         res.render("home/login")
     },
+
+    register: function(req, res){
+        res.render("home/register");
+    }
 }
 const process = {
     login: function (req, res) {
